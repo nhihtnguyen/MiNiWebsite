@@ -4,9 +4,7 @@ const productModel = require('../../models/product.model');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-
   try {
-    // const rows = await db.load('select * from category');
    const rows = await productModel.all();
     res.render('vwManageProduct/index', {
       products: rows,

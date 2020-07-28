@@ -25,6 +25,8 @@ app.use(session({
 
 }))
 app.set('view engine', 'hbs'); 
+
+require('./middlewares/locals.mdw')(app);
 require('./middlewares/route.mdw')(app);
 
 app.get('/', (req, res) => {

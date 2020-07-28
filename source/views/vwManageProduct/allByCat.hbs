@@ -1,0 +1,143 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/flaticon.css">
+<link rel="stylesheet" href="/css/slicknav.css">
+<link rel="stylesheet" href="/css/animate.min.css">
+<link rel="stylesheet" href="/css/magnific-popup.css">
+<link rel="stylesheet" href="/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/css/themify-icons.css">
+<link rel="stylesheet" href="/css/slick.css">
+<link rel="stylesheet" href="/css/nice-select.css">
+<link rel="stylesheet" href="/css/style.css">
+{{/section}}
+<br>
+{{!-- <div class="card shadow mb-4">
+  <h4 class="card-header">
+    Products
+  </h4> --}}
+
+<div class="container">
+
+  <div class="d-flex justify-content-flex-start">
+    <!--Nav Breadcrumb  -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Categories</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{name}}</li>
+      </ol>
+    </nav>
+    <!--End Nav Breadcrumb  -->
+  </div>
+
+  {{#if this.empty}}
+  <div class="card-body">
+    <p class="card-text">
+      Không có dữ liệu.
+    </p>
+  </div>
+  {{else}}
+  <div class="card-body">
+    <div class="row">
+      {{#each this.products}}
+      <div class="col-sm-3 mb-3">
+        <div class="card h-100">
+          <img src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="{{product_name}}" title="{{product_name}}"
+            class="card-img-top">
+          <div class="card-body">
+            <a href='/categories/products/{{product_id}}' class="cus_brand text-dark">
+              <h6 class="card-title">{{product_name}}</h6>
+            </a>
+            <div class="text-center">
+              <h5 class="card-title text-danger">{{price}}</h5>
+            </div>
+
+            <div class="text-center">
+              <a href="#" class="genric-btn info-border">Add to Cart</a>
+              {{!-- <a class="btn btn-outline-success text-center"
+                href="/categories/{{category_id}}/products/addwl?ProductId={{product_id}}">
+                {{#if check}}
+                <i class="fa fa-star" aria-hidden="true"></i>
+                {{else}}
+                <i class="fa fa-check" aria-hidden="true"></i>
+                {{/if}}
+              </a> --}}
+              {{!-- </form> --}}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <nav>
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="?page={{prev_value}}">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+              </a>
+            </li>
+            {{#each this.page_numbers}}
+            {{#if isCurrentPage}}
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="javascript:;">{{value}} <span class="sr-only">(current)</span></a>
+            </li>
+            {{else}}
+            <li class="page-item">
+              <a class="page-link" href="?page={{value}}">{{value}}</a>
+            </li>
+            {{/if}}
+            {{/each}}
+            <li class="page-item">
+              <a class="page-link" href="?page={{next_value}}">
+                <i class="fa fa-forward" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
+</div>
+
+
+
+{{#section 'js'}}
+
+<!-- All JS Custom Plugins Link Here here -->
+<script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/slick.min.js"></script>
+
+<!-- One Page, Animated-HeadLin -->
+<script src="/js/wow.min.js"></script>
+<script src="/js/animated.headline.js"></script>
+<script src="/js/jquery.magnific-popup.js"></script>
+
+<!-- Scrollup, nice-select, sticky -->
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
+<script src="/js/jquery.sticky.js"></script>
+
+<!-- contact js -->
+<script src="/js/contact.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/mail-script.js"></script>
+<script src="/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="/js/plugins.js"></script>
+<script src="/js/main.js"></script>
+{{/section}}

@@ -1,21 +1,22 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>MiNi </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-		<!-- CSS here -->
-         {{{_sections.css}}}
-   
-   </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MiNi </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-   <body>
-       
+    <!-- CSS here -->
+    {{{_sections.css}}}
+
+</head>
+
+<body>
+
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -31,41 +32,39 @@
 
     <header>
         <!-- Header Start -->
-       <div class="header-area">
+        <div class="header-area">
             <div class="main-header ">
 
-               <div class="header-bottom  header-sticky">
+                <div class="header-bottom  header-sticky">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                                 <div class="logo">
-                                  <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-7 col-md-6 col-sm-4">
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right  d-none d-lg-block">
-                                    <nav>                                                
-                                        <ul id="navigation">                                                                                                                                     
+                                    <nav>
+                                        <ul id="navigation">
                                             <li><a href="index.html">Home</a></li>
-                                          
-                                            <li><a href="#">Category</a>
+
+                                            <li><a href="#">Categories</a>
                                                 <ul class="submenu">
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="cart.html">Card</a></li>
-                                                    <li><a href="elements.html">Element</a></li>
-                                                    <li><a href="about.html">About</a></li>
-                                                    <li><a href="confirmation.html">Confirmation</a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="checkout.html">Product Checkout</a></li>
+                                                    {{#each lcCategories}}
+                                                    <li><a href="/categories/{{category_id}}/products">
+                                                            {{name}}
+                                                        </a></li>
+                                                    {{/each }}
                                                 </ul>
                                             </li>
                                             <li><a href="contact.html">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-xl-6 col-lg-4 col-md-4 col-sm-4 fix-card">
                                 <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                     <li class="d-none d-xl-block">
@@ -75,14 +74,14 @@
                                                 <i class="fas fa-search special-tag"></i>
                                             </div>
                                         </div>
-                                     </li>
+                                    </li>
 
                                     <li>
                                         <div class="shopping-card">
                                             <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
-                                   <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li>
+                                    <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li>
                                 </ul>
                             </div>
                             <!-- Mobile Menu -->
@@ -91,9 +90,9 @@
                             </div>
                         </div>
                     </div>
-               </div>
+                </div>
             </div>
-       </div>
+        </div>
         <!-- Header End -->
     </header>
 
@@ -102,65 +101,73 @@
 
         <!-- Category Area End-->
         <!-- Latest Products Start -->
-        <section class="latest-product-area padding-bottom bg-secondary">
+        <section class="latest-product-area padding-bottom">
             <div class="container ">
-             {{{body}}}
+                {{{body}}}
                 <!-- End Nav Card -->
             </div>
         </section>
- 
+
 
     </main>
-   <footer>
+    <footer>
 
-       <!-- Footer Start-->
-       <div class="footer-area footer-padding">
-           <div class="container">
-               <div class="row d-flex justify-content-between">
-                   <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                      <div class="single-footer-caption mb-50">
-                        <div class="single-footer-caption mb-30">
-                             <!-- logo -->
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="img/logo/logo2_footer.png" alt=""></a>
-                            </div>
-                            <div class="footer-tittle">
-                                <div class="footer-pera">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
-                               </div>
+        <!-- Footer Start-->
+        <div class="footer-area footer-padding">
+            <div class="container">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                        <div class="single-footer-caption mb-50">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="img/logo/logo2_footer.png" alt=""></a>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod
+                                            tempor incididunt ut labore.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                      </div>
-                   </div>
-  
-               </div>
-               <!-- Footer bottom -->
-               <div class="row">
-                <div class="col-xl-7 col-lg-7 col-md-7">
-                    <div class="footer-copy-right">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>                   </div>
+                    </div>
+
                 </div>
-                 <div class="col-xl-5 col-lg-5 col-md-5">
-                    <div class="footer-copy-right f-right">
-                        <!-- social -->
-                        <div class="footer-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
+                <!-- Footer bottom -->
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-md-7">
+                        <div class="footer-copy-right">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                                template is made with <i class="ti-heart" aria-hidden="true"></i> by <a
+                                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5">
+                        <div class="footer-copy-right f-right">
+                            <!-- social -->
+                            <div class="footer-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-           </div>
-       </div>
-       <!-- Footer End-->
+        </div>
+        <!-- Footer End-->
 
-   </footer>
-   
+    </footer>
 
-   {{{_sections.js}}}
-    </body>
+
+    {{{_sections.js}}}
+</body>
+
 </html>
