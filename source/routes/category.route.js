@@ -29,6 +29,8 @@ router.get('/:id/products', async (req, res) => {
       })
     }
 
+    console.log(rows);
+
     rows.forEach(async element => {
       element.check = (await productModel.check({
         UserID: res.locals.authUser.UserID,
@@ -39,6 +41,7 @@ router.get('/:id/products', async (req, res) => {
     //  const rows = await productModel.allByCat(req.params.id);
     res.render('vwManageProduct/allByCat', {
       products: rows,
+      product: rows[0],
       empty: rows.length === 0,
       page_numbers,
       prev_value: +page - 1,
@@ -48,6 +51,19 @@ router.get('/:id/products', async (req, res) => {
     console.log(err);
     res.end('View error log in console.');
   }
+})
+
+// vw product detail
+router.get('/products/:id', async (req, res) => {
+
+  const catId = req.params.id;
+
+  const rows = await productModel.single(catId);
+  res.render('vwProducts/detail', {
+    products: rows[0],
+    empty: rows.length === 0,
+  });
+
 
 })
 
