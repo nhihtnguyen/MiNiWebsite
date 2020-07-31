@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const app = express();
 
+
 app.engine('hbs', exphbs({
   defaultLayout: 'main.hbs',
   layoutsDir: 'views/_layouts',
@@ -12,6 +13,11 @@ app.engine('hbs', exphbs({
       section: hbs_sections(),
   }
 
+}));
+
+
+app.use(express.urlencoded({
+    extended: true
 }));
 
 
