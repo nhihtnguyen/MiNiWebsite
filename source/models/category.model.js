@@ -8,5 +8,7 @@ module.exports = {
                 from category c left join product p 
                 on c.category_id =p.category_id group by c.category_id, c.name;`
        return db.load(sql);
-  }
+  },
+
+  add: entity => db.add('Category', entity),
 };
