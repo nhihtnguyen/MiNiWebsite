@@ -15,10 +15,14 @@ app.engine('hbs', exphbs({
 
 }));
 
-
+// middleware hỗ trợ nhận req.body gửi tới dưới dạng String hoặc Array
+// urlencoded sẽ parses x-ww-form-urlencoded request bodies
 app.use(express.urlencoded({
     extended: true
 }));
+//// middleware hỗ trợ nhận req.body gửi tới dưới dạng json
+app.use(express.json());
+
 
 
 app.use(express.static('public'));
