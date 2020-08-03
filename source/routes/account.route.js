@@ -22,7 +22,6 @@ router.post('/register', async(req, res) => {
 
     delete entity.raw_password;
 
-
     const result = await userModel.add(entity);
     res.redirect('/');
 });
