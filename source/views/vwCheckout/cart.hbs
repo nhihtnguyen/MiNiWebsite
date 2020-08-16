@@ -5,12 +5,14 @@
 <link rel="stylesheet" href="/css/slicknav.css">
 <link rel="stylesheet" href="/css/animate.min.css">
 <link rel="stylesheet" href="/css/magnific-popup.css">
-<link rel="stylesheet" href="/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/themify-icons.css">
 <link rel="stylesheet" href="/css/slick.css">
 <link rel="stylesheet" href="/css/nice-select.css">
 <link rel="stylesheet" href="/css/style.css">
+
 {{/section}}
+
 <div class="slider-area ">
     <!-- Mobile Menu -->
     <div class="single-slider slider-height2 d-flex align-items-center" data-background="/img/hero/category.jpg">
@@ -24,16 +26,16 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
 </br>
 {{#if this.empty}}
-  <div class="card-body">
+<div class="card-body">
     <p class="card-text">
-      Không có dữ liệu.
+        Không có dữ liệu.
     </p>
-  </div>
-  {{else}}
- 
+</div>
+{{else}}
+
 <div class="container">
     <div class="cart_inner">
         <div class="table-responsive">
@@ -47,107 +49,96 @@
                     </tr>
                 </thead>
                 <tbody>
-   {{#each this.products}}
+                    {{#each this.products}}
                     <tr>
                         <td>
                             <div class="media">
                                 <div class="d-flex">
-                                    <img src="/img/arrivel/arrivel_1.png" alt="" />
+                                    <img src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="" />
                                 </div>
                                 <div class="media-body">
-                                    <p>{{product_id}}</p>
+                                    <p>{{product_name}}</p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <h5>{{subtotal}}</h5>
+                            <h5>{{price}}</h5>
                         </td>
                         <td>
 
-                            <div style="width:150px"><input type="number" name="BidAmount" value={{amount}} min=0 max=50
-                                    step=1 /></div>
+                            <div style="width:150px">
+
+
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <a href="/checkout/update/{{product_id}}?action=minus" style="min-width:2.5rem"
+                                            class="btn  btn-outline-secondary" type="button">
+                                            <strong>-</strong></a>
+                                    </div>
+                                    <input type="text" value={{amount}} inputmode="decimal" style="text-align: center"
+                                        class="form-control" />
+                                    <div class="input-group-append">
+                                        <a href="/checkout/update/{{product_id}}?action=plus" style="min-width: 2.5rem"
+                                            class="btn btn-outline-secondary" type="button">
+                                            <strong>+</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h5 id="subtotal">{{sub}}</h5>
 
                         </td>
-                        <td>
-                            <h5>{{subtotal}}</h5>
-                        </td>
                     </tr>
-  {{/each}}
-                    <tr class="bottom_button">
-                        <td>
-                            <a class="btn_1" href="#">Update Cart</a>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <div class="cupon_text float-right">
-                                <a class="btn_1" href="#">Close Coupon</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <h5>Subtotal</h5>
-                        </td>
-                        <td>
-                            <h5>$2160.00</h5>
-                        </td>
-                    </tr>
-                    <tr class="shipping_area">
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <h5>Shipping</h5>
-                        </td>
-                        <td>
-                            <div class="shipping_box">
-                                <ul class="list">
-                                    <li>
-                                        Flat Rate: $5.00
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                    </li>
-                                    <li>
-                                        Free Shipping
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                    </li>
-                                    <li>
-                                        Flat Rate: $10.00
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                    </li>
-                                    <li class="active">
-                                        Local Delivery: $2.00
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                    </li>
-                                </ul>
-                                <h6>
-                                    Calculate Shipping
-                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                </h6>
-                                <select class="shipping_select">
-                                    <option value="1">Bangladesh</option>
-                                    <option value="2">India</option>
-                                    <option value="4">Pakistan</option>
-                                </select>
-                                <select class="shipping_select section_bg">
-                                    <option value="1">Select a State</option>
-                                    <option value="2">Select a State</option>
-                                    <option value="4">Select a State</option>
-                                </select>
-                                <input class="post_code" type="text" placeholder="Postcode/Zipcode" />
-                                <a class="btn_1" href="#">Update Details</a>
-                            </div>
-                        </td>
-                    </tr>
+                    {{/each}}
+
+
                 </tbody>
             </table>
+            
+
 
         </div>
+        <div class="float-right">
+        
+                    <div class="card bg-light mb-4  mr-5" style="max-width: 20rem;">
+                        <div class="card-header">Mã giảm giá</div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Nhập mã ở đây.."
+                                    aria-label="Mã giảm giá" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-dark" type="button">Áp dụng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="card bg-light mb-3 " style="max-width: 20rem;">
+                        <div class="card-header font-weight-bold"> Thành tiền: <a>{{this.total}}</a></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tạm tính: <a>{{this.temptotal}}</a></h5>
+                            {{#if nopromo}}
+                             <p class="card-text">Giảm giá: <a>-0.000</a></p>
+                             {{else}}
+                             <p class="card-text">Giảm giá: <a>{{this.promo}}</a></p>
+                            {{/if}}
+
+
+                           
+                        </div>
+                    </div>
+                    <button class="btn btn-dark btn-lg" style="width: 20rem;">Đặt hàng</button>
+
+               
+</div>
     </div>
+
 </div>
 
-  {{/if}}
+
+
+{{/if}}
 {{#section 'js'}}
 
 <!-- All JS Custom Plugins Link Here here -->
@@ -184,8 +175,7 @@
 <script src="/js/plugins.js"></script>
 <script src="/js/main.js"></script>
 
-<script src="/js/bootstrap-input-spinner.js"></script>
-<script>
-    $("input[type='number']").inputSpinner();
-</script>
+
+
+
 {{/section}}
