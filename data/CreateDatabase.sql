@@ -2,16 +2,19 @@ drop database cosmetic_website;
 create database cosmetic_website;
 use cosmetic_website;
 
-CREATE TABLE `customer` (
-  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(16) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `address` varchar(30),
   `phone_number` varchar(30),
- 
-  PRIMARY KEY (`customer_id`)
+  `dob` date NOT NULL,
+  `role` int(5),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  PRIMARY KEY (`user_id`)
 ) ;
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -34,16 +37,16 @@ create table `cart`(
 `customer_id` int(11) not null,
 `total_price` float not null,
 PRIMARY KEY (`cart_id`),
-CONSTRAINT `customer_fk` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
+CONSTRAINT `user_fk` FOREIGN KEY (`customer_id`) REFERENCES `user` (`user_id`)
 );
 
 create table `cart_detail`
 (
-`card_id` int(11) not null,
+`cart_id` int(11) not null,
 `product_id` int(11) not null,
 `amount` int(11) not null,
 `subtotal` float NOT NULL,
-PRIMARY KEY (`card_id`,`product_id`)
+PRIMARY KEY (`cart_id`,`product_id`)
 );
 
 create table `order` (
@@ -59,7 +62,7 @@ create table `order` (
   PRIMARY KEY (`order_id`),
   UNIQUE KEY `order_id_UNIQUE` (`order_id`),
   KEY `customer_fk_2_idx` (`customer_id`),
-  CONSTRAINT `customer_fk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) 
+  CONSTRAINT `customer_fk_2` FOREIGN KEY (`customer_id`) REFERENCES `user` (`user_id`) 
 ) ;
 
 
