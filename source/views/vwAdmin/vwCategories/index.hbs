@@ -16,9 +16,9 @@
 <div class="card shadow">
   <h4 class="card-header">
     Categories
-    <a class="btn btn-outline-secondary" href="/admin/users" role="button">
+    <a class="btn btn-outline-secondary" href="/admin/orders" role="button">
       <i class="fa fa-users" aria-hidden="true"></i>
-      Users
+      orders
     </a>
   </h4>
 
@@ -49,11 +49,14 @@
         <th scope="row" class="text-center">{{category_id}}</th>
         <td>{{name}}</td>
         <td class="text-right">
-          <a class="btn btn-sm btn-danger" href="/admin/categories/{{category_id}}/detail" role="button">
+          {{!-- <a class="btn btn-sm btn-danger" href="/admin/categories/{{category_id}}/detail" role="button">
             <i class="fa fa-book" aria-hidden="true"></i>
           </a>
           <a class="btn btn-sm btn-primary" href="/admin/categories/{{category_id}}/edit" role="button">
             <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a> --}}
+          <a class="btn_3" href="/admin/categories/{{category_id}}/detail">
+            Detail
           </a>
         </td>
       </tr>

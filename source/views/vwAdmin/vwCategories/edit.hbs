@@ -13,17 +13,34 @@
 {{/section}}
 <br>
 
-
+{{#if this.empty}}
+  <div class="card-body">
+    <p class="card-text">
+      Không có dữ liệu.
+    </p>
+  </div>
+  {{else}}
 <div class="card shadow mb-4">
   <h4 class="card-header">
-    New Category
+    Edit Product
   </h4>
   <div class="card-body">
     <form method="POST">
       <div class="form-group">
-        <label for="txtCatName">Category</label>
-        <input type="text" class="form-control" id="txtCateName" name="CateName" placeholder="Enter category name"
-          autofocus>
+        <label for="txtProName">Product</label>
+        <input type="text" class="form-control" id="txtProdName" name="product_name" value={{product_name}} autofocus>
+      </div>
+      <div class="form-group">
+        <label for="txtCateName">Category</label>
+        <input type="text" class="form-control" id="txtProdName" name="category_id" value={{category_id}} readonly>
+      </div>
+      <div class="form-group">
+        <label for="txtPrice">Price</label>
+        <input type="text" class="form-control" id="txtPrice" name="price" value={{price}}>
+      </div>
+      <div class="form-group">
+        <label for="txtDese">Description</label>
+        <input type="text" class="form-control" id="txtDes" name="description" value={{description}}>
       </div>
       <a class="btn btn-outline-primary" href="/admin/categories" role="button">
         <i class="fa fa-backward" aria-hidden="true"></i>
@@ -39,6 +56,7 @@
     Footer
   </div>
 </div>
+{{/if}}
 
 
 

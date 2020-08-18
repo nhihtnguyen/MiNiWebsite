@@ -63,8 +63,13 @@ router.get('/products/:id', async (req, res) => {
     products: rows[0],
     empty: rows.length === 0,
   });
-
-
 })
+
+router.get('/products/:id/:price/add', async(req, res) => {
+  const proId=req.params.id;
+  const proPrice= req.params.price;
+
+  const result = await productModel.add()
+ })
 
 module.exports = router;

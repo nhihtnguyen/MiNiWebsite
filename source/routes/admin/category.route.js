@@ -12,15 +12,6 @@ router.get('/', async(req, res) => {
   });
 })
 
-/* router.get('/add', (req, res) => {
-  res.render('vwAdmin/vwCategories/add');
-})
-
-router.post('/add', async(req, res) => {
-  const result = await categoryModel.add(req.body);
-  res.render('vwAdmin/vwCategories/add');
-}) */
-
 router.get('/:id/detail', async(req, res) => {
   try {
       // const rows = await db.load('select * from categories');
@@ -33,6 +24,20 @@ router.get('/:id/detail', async(req, res) => {
       console.log(err);
       //res.end('View error log in console.');
       res.render('error', { layout: false });
+  }
+})
+
+router.get('/detail/:productid/edit', async (req, res) => {
+  try {
+    const row = await productModel.single(req.params.productid);
+    console.log(row);
+    res.render('vwAdmin/vwCategories/edit', {
+      product: row,
+      empty: row.length === 0
+    });
+  } catch (err) {
+    console.log(err);
+    res.render('error', { layout: false });
   }
 })
 

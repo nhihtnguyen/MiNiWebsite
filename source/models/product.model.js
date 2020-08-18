@@ -17,4 +17,10 @@ module.exports = {
 
   single: id => db.load(`select * from product where product_id = ${id}`),
 
+  patch: (entity, proID) => {
+    const condition = { product_id: proID };
+    delete entity.product_id;
+    return db.patch('product', entity, condition);
+  },
+
 };

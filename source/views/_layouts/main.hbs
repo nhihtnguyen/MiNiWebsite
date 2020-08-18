@@ -78,10 +78,47 @@
 
                                     <li>
                                         <div class="shopping-card">
-                                            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="/checkout/cart"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
-                                    <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li>
+                                    {{!-- <li class="d-none d-lg-block"> <a href="#" class="btn header-btn">Sign in</a></li> --}}
+
+                                    <li>
+                                        {{!-- <div class="collapse navbar-collapse flex-grow-1 text-right"> --}}
+                                        <div class="user">
+                                            {{!-- <ul class="navbar-nav ml-auto flex-nowrap"> --}}
+                                            {{#if isAuthenticated}}
+
+                                            <!-- Dropdown -->
+                                            <div class="nav-item dropdown">
+                                                <a class="btn btn-outline-primary dropdown-toggle" href="#"
+                                                    data-toggle="dropdown">
+                                                    <i
+                                                        class="fa fa-user-circle"></i>Hi,&ensp;<b>{{authUser.UserName}}!</b>
+                                                </a>
+
+                                                <div class="dropdown-menu">
+                                                    {{!-- {{#if authUser.TypeUser === 1}} --}}
+                                                    {{!-- <a class="dropdown-item" href="/user/selling">Selling</a>
+                                                        <a class="dropdown-item" href="/user/sold">SOLD</a> --}}
+                                                    {{!-- {{/if}} --}}
+                                                    <a class="dropdown-item"
+                                                        href="javascript: $('#frmLogout').submit();">Logout</a>
+                                                </div>
+                                            </div>
+                                            {{else}}
+                                            <div class="flex-row">
+                                                <div class="nav-item">
+                                                    <a class="btn btn-outline-primary"
+                                                        href="/account/register">Register</a>
+                                                    <a class="btn btn-outline-primary" href="/account/login">Login</a>
+                                                </div>
+                                            </div>
+                                            {{/if}}
+                                            {{!-- </ul> --}}
+
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- Mobile Menu -->

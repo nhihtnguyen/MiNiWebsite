@@ -79,21 +79,6 @@
         <div class="carousel-item active">
 
             {{#each this.products}}
-            {{!-- <div class="col-md-3" style="float:left">
-                <div class="card mb-2">
-                    <img class="card-img-top"
-                        src="/imgs/sp/{{product_id}}/main_thumbs.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h4 class="card-title">{{product_name}}</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-            </div>
- --}}
             <div class="col-sm-3 mb-3" style="float:left">
                 <div class="card h-100">
                     <img src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="{{product_name}}" title="{{product_name}}"
@@ -106,20 +91,12 @@
                             <h5 class="card-title text-danger">{{price}}</h5>
                         </div>
 
-                        <div class="text-center">
+                       {{!--  <div class="text-center">
                             <a href="#" class="genric-btn info-border">Add to Cart</a>
-
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
             {{/each}}
 
         </div>
@@ -133,10 +110,9 @@
                     <img class="card-img-top" src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">{{product_name}}</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a class="btn btn-primary">Button</a>
+                        <div class="text-center">
+                            <h5 class="card-title text-danger">{{price}}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
