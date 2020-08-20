@@ -57,7 +57,7 @@ router.post('/login', async(req, res) => {
         //admin
         res.redirect('http://localhost:3000/admin/categories')
     } else if (req.session.authUser.role === 1) {
-      
+       
         const result2 = cartModel.create(user.user_id);
         //customer
         res.redirect('/');
