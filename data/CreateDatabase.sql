@@ -48,7 +48,7 @@ create table `cart_detail`
 PRIMARY KEY (`cart_id`,`product_id`)
 );
 
-create table `order` (
+create table `sale_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
@@ -56,7 +56,6 @@ create table `order` (
   `shipping_address` varchar(256) NOT NULL,
   `recipient_name` varchar(30) NOT NULL,
   `recipient_phone` varchar(15) NOT NULL,
-  `payment_method` varchar(20) NOT NULL,
   `total` float NOT NULL,
   `status` varchar(20) NOT NULL,
   PRIMARY KEY (`order_id`),
