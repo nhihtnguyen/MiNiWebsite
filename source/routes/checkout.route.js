@@ -67,8 +67,13 @@ router.get('/confirm/:order',async(req, res) =>
     var result = await cartModel.updateSingleItem(cart[i]);
   }
     res.redirect(link);
-}
-)
+})
+
+router.post('/confirm/:order',async(req, res) =>
+{
+    var order_id = req.params.order;
+    console.log(req.body);
+})
 
 router.get('/update/:product', function(req,res)
 {
