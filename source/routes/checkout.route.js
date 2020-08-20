@@ -71,7 +71,7 @@ router.get('/confirm/:order',async(req, res) =>
     res.redirect(link);
 })
 
-router.post('/order/:order',async(req, res) =>
+router.post('/order/:order',(req, res) =>
 {
     const cart = req.session.cart;
     const user = req.session.authUser;
@@ -88,8 +88,9 @@ router.post('/order/:order',async(req, res) =>
     req.body.total = req.session.total;
     req.body.status ='đang xử lý';
     
+    req.session.order = req.body;
     console.log(req.body);
-    const result = await orderModel.add(req.body);
+    
 
   
 
@@ -121,12 +122,35 @@ for (var i=0;i<cart.length;i++)
 res.redirect('/checkout/cart');
 })
 
-router.get('/payment', function(req,res)
-{
-    res.render('vwCheckout/payment', {
-     
-        });
 
-})
+
+router.get('/payment', async(req, res) => {
+    const user = req.session.authUser;
+    var cart =  req.session.cart;
+    var temptotal = req.session.total;
+    var shipping_fee =30;
+    var total = temptotal+shipping_fee;
+    req.session.order.total = total;
+
+    res.render('vwCheckout/payment', {
+        products: cart,
+        empty: cart.length === 0,
+        temptotal: temptotal,
+        total: total,
+        order: cart[0].cart_id,
+       fee: shipping_fee,
+    });
+}
+)
+router.get('/payment/confirm', async(req, res) => {
+    const order = req.session.order;
+    console.log(order);
+    const result = await orderModel.add(order);
+
+    res.render('vwCheckout/listOrder', {
+       
+    });
+}
+)
 
 module.exports = router;
