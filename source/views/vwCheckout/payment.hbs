@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
-                        <h2>THÔNG TIN NHẬN HÀNG</h2>
+                        <h2>THANH TOÁN</h2>
                     </div>
                 </div>
             </div>
@@ -28,66 +28,7 @@
     </div>
 </div>
 </br>
-{{#if this.empty}}
-<div class="card-body">
-    <p class="card-text">
-        Không có dữ liệu.
-    </p>
-</div>
-{{else}}
 
-<div class="container">
-    <div class="card" style="width: 25rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{this.user.full_name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Địa chỉ: <a>{{this.user.address}}</a></h6>
-    <p class="card-text">Điện thoại: <a>{{this.user.phone_number}}</a></p>
-    <button  class="btn btn-dark " style="width: 20rem;">Lấy làm thông tin người nhận</button>
-  </div>
-</div>
-<br>
-<h6> Sửa thông tin người nhận</h6>
-<div class="card-inner bg-light px-5 border-top">
-<br>
-<form method="POST">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputName">Họ tên</label>
-      <input type="text" class="form-control" id="inputName" name ="recipient_name" placeholder="Điền họ tên..">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPhoneNumber">Điện thoại di động</label>
-      <input type="text" class="form-control" id="inputPhoneNumber" name ="recipient_phone"  placeholder="Điền số điện thoại..">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputProvince">Tỉnh/ Thành phố</label>
-    <input type="text" class="form-control" id="inputProvince" name ="province"  placeholder="Điền tỉnh/ thành phố..">
-  </div>
-  <div class="form-group">
-    <label for="inputDistrict">Quận/ Huyện</label>
-    <input type="text" class="form-control" id="inputDistrict" name ="district"  placeholder="Điền quận/ huyện..">
-  </div>
-    <div class="form-group">
-    <label for="inputWard">Phường/ Xã</label>
-    <input type="text" class="form-control" id="inputWard" name ="ward" placeholder="Điền quận/ huyện..">
-  </div>
-      <div class="form-group">
-    <label for="inputAddress">Địa chỉ</label>
-    <input type="text" class="form-control" id="inputAddress"  name ="address" placeholder="">
-  </div>
- 
-  <div class="d-flex justify-content-center">
-  <button type ="submit"   class="btn btn-dark btn-md "  style="width: 18rem;" >Cập nhật thông tin người nhận</button>
-  </div>
-</form>
-<br>
-</div>
-</div>
-
-
-
-{{/if}}
 {{#section 'js'}}
 
 <!-- All JS Custom Plugins Link Here here -->

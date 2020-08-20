@@ -1,6 +1,7 @@
 const express = require('express');
 const cartModel = require('../models/cart.model');
-
+const orderModel = require('../models/order.model');
+const moment = require('moment');
 const router = express.Router();
 
 router.get('/cart', async(req, res) => {
@@ -25,6 +26,7 @@ router.get('/cart', async(req, res) => {
     temptotal+=cart[i].sub;
     }
     var total = temptotal-promo;
+    req.session.total =total;
 
     res.render('vwCheckout/cart', {
         products: cart,
@@ -69,10 +71,29 @@ router.get('/confirm/:order',async(req, res) =>
     res.redirect(link);
 })
 
-router.post('/confirm/:order',async(req, res) =>
+router.post('/order/:order',async(req, res) =>
 {
+    const cart = req.session.cart;
+    const user = req.session.authUser;
     var order_id = req.params.order;
     console.log(req.body);
+    req.body.shipping_address = req.body.address + ' '+req.body.ward +' '+ req.body.district +' '+ req.body.province;
+    delete req.body.address;
+    delete req.body.ward;
+    delete req.body.district;
+    delete req.body.province;
+    req.body.customer_id = user.user_id;
+    req.body.cart_id = cart[0].cart_id;
+    req.body.order_date = moment(Date.now()).format("YYYY-MM-DD HH:mm:ss");
+    req.body.total = req.session.total;
+    req.body.status ='đang xử lý';
+    
+    console.log(req.body);
+    const result = await orderModel.add(req.body);
+
+  
+
+    res.redirect('/checkout/payment');
 })
 
 router.get('/update/:product', function(req,res)
@@ -99,4 +120,13 @@ for (var i=0;i<cart.length;i++)
 }
 res.redirect('/checkout/cart');
 })
+
+router.get('/payment', function(req,res)
+{
+    res.render('vwCheckout/payment', {
+     
+        });
+
+})
+
 module.exports = router;
