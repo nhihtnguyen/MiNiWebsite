@@ -146,11 +146,19 @@ router.get('/payment/confirm', async(req, res) => {
     const order = req.session.order;
     console.log(order);
     const result = await orderModel.add(order);
-
-    res.render('vwCheckout/listOrder', {
-       
-    });
+    
+    res.redirect('/checkout/list');
 }
 )
 
+router.get('/list',async(req,res) =>
+{
+    const user_id = req.session.authUser.user_id;
+    const rows = await orderModel.orderByUser(user_id);
+    res.render('vwCheckout/listOrder',
+    {
+        orders: rows,
+
+    });
+})
 module.exports = router;
