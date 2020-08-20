@@ -12,7 +12,7 @@ module.exports = {
         const amount = { amount: entity.amount };
         return db.update('cart_detail', amount, condition1, condition2);
     },
-    add: (cart_id, product_id, subtotal) => db.load(`insert into cart_detail values ('${cart_id}','${product_id}','1','${subtotal}')`),
+    add: (cart_id, product_id) => db.load(`insert into cart_detail values ('${cart_id}','${product_id}','1')`),
     init: (customer_id) => db.load(`insert into cart set total_price = '0', customer_id =${customer_id}`),
   
     create: user_id => {
