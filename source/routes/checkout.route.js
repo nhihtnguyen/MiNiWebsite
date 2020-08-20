@@ -33,6 +33,7 @@ router.get('/cart', async(req, res) => {
         nopromo: promo.length ===0,
         promo: promo,
         temptotal: temptotal,
+        order: cart[0].cart_id,
     });
 }
 else
@@ -42,6 +43,32 @@ res.render('vwCheckout/cart', {
 });
 }
 })
+
+router.get('/order/:order',(req, res) =>
+{
+    const order = req.params.order;
+    const user = req.session.authUser;
+
+    res.render('vwCheckout/orderInformation', {
+    user:user,
+    order_id:order,
+    });
+
+})
+
+router.get('/confirm/:order',async(req, res) =>
+{
+    var order_id = req.params.order;
+    var link = '/checkout/order/'+ order_id;
+    var cart = req.session.cart;
+    console.log(cart);
+  for(var i=0;i<cart.length;i++)
+  {
+    var result = await cartModel.updateSingleItem(cart[i]);
+  }
+    res.redirect(link);
+}
+)
 
 router.get('/update/:product', function(req,res)
 {

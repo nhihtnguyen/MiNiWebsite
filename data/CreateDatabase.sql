@@ -45,7 +45,6 @@ create table `cart_detail`
 `cart_id` int(11) not null,
 `product_id` int(11) not null,
 `amount` int(11) not null,
-`subtotal` float NOT NULL,
 PRIMARY KEY (`cart_id`,`product_id`)
 );
 

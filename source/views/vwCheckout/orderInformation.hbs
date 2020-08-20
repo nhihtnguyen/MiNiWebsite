@@ -1,0 +1,130 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/flaticon.css">
+<link rel="stylesheet" href="/css/slicknav.css">
+<link rel="stylesheet" href="/css/animate.min.css">
+<link rel="stylesheet" href="/css/magnific-popup.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/themify-icons.css">
+<link rel="stylesheet" href="/css/slick.css">
+<link rel="stylesheet" href="/css/nice-select.css">
+<link rel="stylesheet" href="/css/style.css">
+
+{{/section}}
+
+<div class="slider-area ">
+    <!-- Mobile Menu -->
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="/img/hero/category.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>THÔNG TIN NHẬN HÀNG</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</br>
+{{#if this.empty}}
+<div class="card-body">
+    <p class="card-text">
+        Không có dữ liệu.
+    </p>
+</div>
+{{else}}
+
+<div class="container">
+    <div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{this.user.full_name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Địa chỉ: <a>{{this.user.address}}</a></h6>
+    <p class="card-text">Điện thoại: <a>{{this.user.phone_number}}</a></p>
+    <button  class="btn btn-dark " style="width: 20rem;">Lấy làm thông tin người nhận</button>
+  </div>
+</div>
+<br>
+<h6> Sửa thông tin người nhận</h6>
+<div class="card-inner bg-light px-5 border-top">
+<br>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Họ tên</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Điền họ tên..">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPhoneNumber">Điện thoại di động</label>
+      <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Điền số điện thoại..">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputProvince">Tỉnh/ Thành phố</label>
+    <input type="text" class="form-control" id="inputProvince" placeholder="Điền tỉnh/ thành phố..">
+  </div>
+  <div class="form-group">
+    <label for="inputDistrict">Quận/ Huyện</label>
+    <input type="text" class="form-control" id="inputDistrict" placeholder="Điền quận/ huyện..">
+  </div>
+    <div class="form-group">
+    <label for="inputWard">Phường/ Xã</label>
+    <input type="text" class="form-control" id="inputWard" placeholder="Điền quận/ huyện..">
+  </div>
+      <div class="form-group">
+    <label for="inputAddress">Địa chỉ</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="">
+  </div>
+ 
+  <div class="d-flex justify-content-center">
+  <button   class="btn btn-dark btn-md " style="width: 18rem;">Cập nhật thông tin người nhận</button>
+  </div>
+</form>
+<br>
+</div>
+</div>
+
+
+
+{{/if}}
+{{#section 'js'}}
+
+<!-- All JS Custom Plugins Link Here here -->
+<script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/slick.min.js"></script>
+
+<!-- One Page, Animated-HeadLin -->
+<script src="/js/wow.min.js"></script>
+<script src="/js/animated.headline.js"></script>
+<script src="/js/jquery.magnific-popup.js"></script>
+
+<!-- Scrollup, nice-select, sticky -->
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.nice-select.min.js"></script>
+<script src="/js/jquery.sticky.js"></script>
+
+<!-- contact js -->
+<script src="/js/contact.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/mail-script.js"></script>
+<script src="/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="/js/plugins.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+{{/section}}
