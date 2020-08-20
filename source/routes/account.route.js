@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const userModel = require('../models/account.model');
+const cartModel = require('../models/cart.model');
 
 const router = express.Router();
 
@@ -22,7 +23,11 @@ router.post('/register', async(req, res) => {
 
     delete entity.raw_password;
 
+    
     const result = await userModel.add(entity);
+
+
+
     res.redirect('/');
 });
 
@@ -52,6 +57,8 @@ router.post('/login', async(req, res) => {
         //admin
         res.redirect('http://localhost:3000/admin/categories')
     } else if (req.session.authUser.role === 1) {
+      
+        const result2 = cartModel.create(user.user_id);
         //customer
         res.redirect('/');
     }
