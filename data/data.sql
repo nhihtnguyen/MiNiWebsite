@@ -41,5 +41,13 @@ INSERT INTO `cosmetic_website`.`product` (`category_id`,`product_name`, `price`,
 INSERT INTO `cosmetic_website`.`product` (`category_id`,`product_name`, `price`,`description`) VALUES ('3','AAloe Revital Skin Mist', '10','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 INSERT INTO `cosmetic_website`.`product` (`category_id`,`product_name`, `price`,`description`) VALUES ('3','Jeju Chery Blossom Skin','10', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 
+-- User
+INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `password`, `dob`,`role`) VALUES('My Nguyen', 'myymy42us@gmail.com', 'Myy', '$2a$10$hBF5Dd/30Y5UohYm5hV/necj359qrl2O2TQvCTzCn3HLz1k.Ac5C6','1999-04-02','1');
+INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `password`, `dob`,`role`) VALUES('admin', 'admin@gmail.com', 'admin', '$2a$10$hBF5Dd/30Y5UohYm5hV/necj359qrl2O2TQvCTzCn3HLz1k.Ac5C6','1999-04-02','0');
+
+
 select * from product;
 select * from category;
+select * from user;
+select * from cart;
+select * from cart_detail;

@@ -104,15 +104,22 @@
 
         <!--Second slide-->
         <div class="carousel-item">
-            {{#each this.products}}
-            <div class="col-md-3" style="float:left">
-                <div class="card mb-2">
-                    <img class="card-img-top" src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="Card image cap">
+             {{#each this.products}}
+            <div class="col-sm-3 mb-3" style="float:left">
+                <div class="card h-100">
+                    <img src="/imgs/sp/{{product_id}}/main_thumbs.jpg" alt="{{product_name}}" title="{{product_name}}"
+                        class="card-img-top">
                     <div class="card-body">
-                        <h4 class="card-title">{{product_name}}</h4>
+                        <a href='/categories/products/{{product_id}}' class="cus_brand text-dark">
+                            <h6 class="card-title">{{product_name}}</h6>
+                        </a>
                         <div class="text-center">
                             <h5 class="card-title text-danger">{{price}}</h5>
                         </div>
+
+                       {{!--  <div class="text-center">
+                            <a href="#" class="genric-btn info-border">Add to Cart</a>
+                        </div> --}}
                     </div>
                 </div>
             </div>

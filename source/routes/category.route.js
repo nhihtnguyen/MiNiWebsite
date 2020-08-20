@@ -1,5 +1,7 @@
 const express = require('express');
 const productModel = require('../models/product.model');
+const userModel = require('../models/account.model');
+const cartModel = require('../models/cart.model');
 const config = require('../config/default.json')
 
 const router = express.Router();
@@ -65,11 +67,30 @@ router.get('/products/:id', async (req, res) => {
   });
 })
 
-router.get('/products/:id/:price/add', async(req, res) => {
-  const proId=req.params.id;
-  const proPrice= req.params.price;
+router.get('/products/:id/:price/add', async (req, res) => {
+  try {
+    const proId = req.params.id;
+    const proPrice = req.params.price;
+    const user = req.session.authUser;
+    const userId = user.user_id;
+    const cartId = await userModel.cartByUser(userId);
+    console.log(cartId[0].cart_id);
+    if (cartId[0].cart_id != null) {
+      const result = await cartModel.add(cartId[0].cart_id, proId, proPrice);
+      console.log('khong khoi tao');
+    }
+    else {
+      const init = await cartModel.init(userId);
+      const cartId2 = await userModel.cartByUser(userId);
+      const result = await cartModel.add(cartId2[0].cart_id, proId, proPrice);
+      console.log('khoi tao');
+    }
+    res.redirect('/checkout/cart');
+  } catch (err) {
+    console.log(err);
+    res.redirect('/checkout/cart');
+  }
+})
 
-  const result = await productModel.add()
- })
 
 module.exports = router;

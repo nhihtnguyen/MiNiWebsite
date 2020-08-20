@@ -13,4 +13,6 @@ module.exports = {
   },
   add: entity => db.add('user', entity),
   del: id => db.del('user', { user_id: id }),
+  cartByUser: id => db.load(`select c.cart_id from user as u left join cart as c on u.user_id=c.customer_id where u.user_id =${id}`),
+
 };
