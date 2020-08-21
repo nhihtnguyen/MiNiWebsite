@@ -45,9 +45,22 @@ INSERT INTO `cosmetic_website`.`product` (`category_id`,`product_name`, `price`,
 INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `password`, `dob`,`role`) VALUES('My Nguyen', 'myymy42us@gmail.com', 'Myy', '$2a$10$hBF5Dd/30Y5UohYm5hV/necj359qrl2O2TQvCTzCn3HLz1k.Ac5C6','1999-04-02','1');
 INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `password`, `dob`,`role`) VALUES('admin', 'admin@gmail.com', 'admin', '$2a$10$hBF5Dd/30Y5UohYm5hV/necj359qrl2O2TQvCTzCn3HLz1k.Ac5C6','1999-04-02','0');
 
+-- cart
+INSERT INTO `cosmetic_website`.`cart` (`cart_id`,`customer_id`, `total_price`) VALUES('1', '1', '0');
+
+-- cart detail
+INSERT INTO `cosmetic_website`.`cart_detail` (`cart_id`,`product_id`, `amount`) VALUES('1', '1', '50');
+
+
+
+
+select c.cart_id from user as u left join cart as c on u.user_id=c.customer_id where u.user_id =1;
+select* from cart_detail as c left join product as p on c.product_id=p.product_id where c.cart_id =1;
+select * from sale_order where order_id=1;
 
 select * from product;
 select * from category;
 select * from user;
 select * from cart;
 select * from cart_detail;
+select * from sale_order;
