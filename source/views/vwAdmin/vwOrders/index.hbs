@@ -61,12 +61,24 @@
                 <td>{{payment_method}}</td>
                 <td>{{total}}</td>
                 <td>{{status}}</td>
-                {{!-- <td class="text-right">
-                    <a class="btn btn-success mt-3" href="/admin/categories/detail/{{product_id}}/edit" role="button">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Edit
+                <td class="text-right">
+                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/processing" role="button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Đang xử lý
                     </a>
-                </td> --}}
+                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/delivering" role="button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Đang giao
+                    </a>
+                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/success" role="button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Thành công
+                    </a>
+                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/cancel" role="button">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Hủy đơn
+                    </a>
+                </td>
             </tr>
             {{/each}}
         </tbody>
