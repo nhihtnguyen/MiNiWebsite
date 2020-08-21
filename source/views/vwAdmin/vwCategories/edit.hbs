@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/css/slicknav.css">
 <link rel="stylesheet" href="/css/animate.min.css">
 <link rel="stylesheet" href="/css/magnific-popup.css">
-<link rel="stylesheet" href="/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/themify-icons.css">
 <link rel="stylesheet" href="/css/slick.css">
 <link rel="stylesheet" href="/css/nice-select.css">
@@ -28,11 +28,11 @@
     <form method="POST">
       <div class="form-group">
         <label for="txtProName">Product</label>
-        <input type="text" class="form-control" id="txtProdName" name="product_name" value={{product_name}} autofocus>
+        <input type="text" class="form-control" id="txtProdName" name="product_name" value={{product.product_name}} autofocus>
       </div>
       <div class="form-group">
         <label for="txtCateName">Category</label>
-        <input type="text" class="form-control" id="txtProdName" name="category_id" value={{category_id}} readonly>
+        <input type="text" class="form-control" id="txtProdName" name="category_id" value={{product.category_id}} readonly>
       </div>
       <div class="form-group">
         <label for="txtPrice">Price</label>

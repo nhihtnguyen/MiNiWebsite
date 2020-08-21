@@ -14,7 +14,6 @@ router.get('/', async(req, res) => {
 
 router.get('/:id/detail', async(req, res) => {
   try {
-      // const rows = await db.load('select * from categories');
       const rows = await productModel.allByCat(+req.params.id);
       res.render('vwAdmin/vwCategories/detail', {
           categories: rows,
@@ -27,13 +26,13 @@ router.get('/:id/detail', async(req, res) => {
   }
 })
 
-router.get('/detail/:productid/edit', async (req, res) => {
+router.get('/detail/:productId/edit', async (req, res) => {
   try {
-    const row = await productModel.single(req.params.productid);
-    console.log(row);
+    const row = await productModel.single(req.params.productId);
+    /* console.log(row[0]); */
     res.render('vwAdmin/vwCategories/edit', {
-      product: row,
-      empty: row.length === 0
+      product: row[0],
+      empty: row[0].length === 0
     });
   } catch (err) {
     console.log(err);
@@ -41,20 +40,10 @@ router.get('/detail/:productid/edit', async (req, res) => {
   }
 })
 
+router.post('/detail/:productId/edit', async(req, res) => {
+  const proId=req.params.productId;
+  const result = await productModel.patch(req.body,proId);
+  res.redirect('/admin/categories');
+})
+
 module.exports = router;
-
-
-
-/* router.get('/', async (req, res) => {
-  try {
-   const rows = await productModel.all();
-    res.render('vwManageProduct/index', {
-      products: rows,
-      empty: rows.length === 0
-    });
-  } catch (err) {
-    console.log(err);
-    res.end('View error log in console.');
-  }
-
-}) */
