@@ -46,18 +46,6 @@ res.render('vwCheckout/cart', {
 }
 })
 
-router.get('/order/:order',(req, res) =>
-{
-    const order = req.params.order;
-    const user = req.session.authUser;
-
-    res.render('vwCheckout/orderInformation', {
-    user:user,
-    order_id:order,
-    });
-
-})
-
 router.get('/confirm/:order',async(req, res) =>
 {
     var order_id = req.params.order;
@@ -71,10 +59,40 @@ router.get('/confirm/:order',async(req, res) =>
     res.redirect(link);
 })
 
+router.get('/order/:order',(req, res) =>
+{
+    const order = req.params.order;
+    const user = req.session.authUser;
+
+    res.render('vwCheckout/orderInformation', {
+    user:user,
+    order_id:order,
+    });
+
+})
+
+router.get('/currentuser',(req,res)=>
+{
+    const user = req.session.authUser;
+    const cart = req.session.cart;
+    
+    var  order_date =  moment(Date.now()).format("YYYY-MM-DD HH:mm:ss");
+    console.log(user);
+    const order ={'recipient_name':user.full_name,'recipient_phone':user.phone_number,'shipping_address':user.address,'customer_id':user.user_id,'cart_id':cart[0].cart_id,'order_date':order_date,'total':req.session.total,'status':'đang xử lý' }
+    req.session.order = order;
+
+    console.log( req.session.order );
+
+    
+    res.redirect('/checkout/payment');
+
+})
+
+
 router.post('/order/:order',(req, res) =>
 {
-    const cart = req.session.cart;
     const user = req.session.authUser;
+    const cart = req.session.cart;
     var order_id = req.params.order;
     console.log(req.body);
     req.body.shipping_address = req.body.address + ' '+req.body.ward +' '+ req.body.district +' '+ req.body.province;
@@ -89,13 +107,13 @@ router.post('/order/:order',(req, res) =>
     req.body.status ='đang xử lý';
     
     req.session.order = req.body;
-    console.log(req.body);
-    
-
   
-
+    console.log(req.body);
+ 
     res.redirect('/checkout/payment');
 })
+
+
 
 router.get('/update/:product', function(req,res)
 {
@@ -155,6 +173,9 @@ router.get('/list',async(req,res) =>
 {
     const user_id = req.session.authUser.user_id;
     const rows = await orderModel.orderByUser(user_id);
+    rows.forEach(e => {
+        moment(e.order_date).format("DD-MM-YYYY");
+    });
     res.render('vwCheckout/listOrder',
     {
         orders: rows,

@@ -9,7 +9,7 @@ CREATE TABLE `user` (
   `email` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `address` varchar(30),
+  `address` varchar(300),
   `phone_number` varchar(30),
   `dob` date NOT NULL,
   `role` int(5),
