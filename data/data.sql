@@ -49,7 +49,7 @@ INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `passwor
 INSERT INTO `cosmetic_website`.`cart` (`cart_id`,`customer_id`, `total_price`) VALUES('1', '1', '0');
 
 -- cart detail
-INSERT INTO `cosmetic_website`.`cart_detail` (`cart_id`,`product_id`, `amount`) VALUES('1', '1', '50');
+INSERT INTO `cosmetic_website`.`cart_detail` (`cart_id`,`product_id`, `amount`) VALUES('1', '1', '1');
 
 
 
@@ -64,3 +64,4 @@ select * from user;
 select * from cart;
 select * from cart_detail;
 select * from sale_order;
+select d.*,p.* from cart as c left join cart_detail as d on c.cart_id=d.cart_id left join product as p on d.product_id=p.product_id where c.customer_id =1;

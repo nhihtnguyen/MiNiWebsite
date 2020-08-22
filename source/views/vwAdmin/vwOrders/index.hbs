@@ -42,11 +42,6 @@
                 <th scope="col">Payment method</th>
                 <th scope="col">Total</th>
                 <th scope="col">Status</th>
-                {{!-- <a class="btn btn-outline-success" href="/admin/categories/add" role="button">
-          <i class="fa fa-plus" aria-hidden="true"></i>
-          Add category
-          </a> --}}
-                {{!-- </th> --}}
             </tr>
         </thead>
         <tbody>
@@ -63,19 +58,19 @@
                 <td>{{status}}</td>
                 <td class="text-right">
                     <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/processing" role="button">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fa fa-spinner" aria-hidden="true"></i>
                         Đang xử lý
                     </a>
                     <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/delivering" role="button">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fa fa-truck" aria-hidden="true"></i>
                         Đang giao
                     </a>
                     <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/success" role="button">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
                         Thành công
                     </a>
                     <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/cancel" role="button">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
                         Hủy đơn
                     </a>
                 </td>
