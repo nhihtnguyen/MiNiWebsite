@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSS here -->
     {{{_sections.css}}}
 
@@ -102,9 +102,12 @@
                                                     {{!-- <a class="dropdown-item" href="/user/selling">Selling</a>
                                                         <a class="dropdown-item" href="/user/sold">SOLD</a> --}}
                                                     {{!-- {{/if}} --}}
-                                                         <form id="frmLogout" method="post" action="/account/logout"></form>
+                                                    <a class="dropdown-item" href="/checkout/list">List Order</a>
+                                                    <form id="frmLogout" method="post" action="/account/logout"></form>
                                                     <a class="dropdown-item"
-                                                        href="javascript: $('#frmLogout').submit();">Logout</a>
+                                                        href="javascript: $('#frmLogout').submit();">
+                                                        Logout
+                                                    </a>
                                                 </div>
                                             </div>
                                             {{else}}

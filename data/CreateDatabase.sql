@@ -45,7 +45,8 @@ create table `cart_detail`
 `cart_id` int(11) not null,
 `product_id` int(11) not null,
 `amount` int(11) not null,
-PRIMARY KEY (`cart_id`,`product_id`)
+PRIMARY KEY (`cart_id`,`product_id`),
+CONSTRAINT `cart_fk` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`) 
 );
 
 create table `sale_order` (
@@ -64,6 +65,16 @@ create table `sale_order` (
   CONSTRAINT `customer_fk_2` FOREIGN KEY (`customer_id`) REFERENCES `user` (`user_id`),
    CONSTRAINT `cart_fk_2` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`cart_id`) 
 ) ;
+
+CREATE TABLE `order_detail` (
+  `order_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `amount` int(11) NOT NULL,
+  `subtotal` float NOT NULL,
+  CONSTRAINT `product_fk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ,
+  CONSTRAINT `order_fk` FOREIGN KEY (`order_id`) REFERENCES `sale_order` (`order_id`) 
+) 
+
 
 
 
