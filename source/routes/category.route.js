@@ -1,14 +1,13 @@
-const express = require('express');
-const productModel = require('../models/product.model');
-const userModel = require('../models/account.model');
-const cartModel = require('../models/cart.model');
-const config = require('../config/default.json')
+const express = require("express");
+const productModel = require("../models/product.model");
+const userModel = require("../models/account.model");
+const cartModel = require("../models/cart.model");
+const config = require("../config/default.json");
 
 const router = express.Router();
 
-router.get('/:id/products', async (req, res) => {
+router.get("/:id/products", async (req, res) => {
   try {
-
     const catId = req.params.id;
     const limit = config.paginate.limit;
 
@@ -18,7 +17,7 @@ router.get('/:id/products', async (req, res) => {
 
     const [total, rows] = await Promise.all([
       productModel.countByCat(catId),
-      productModel.pageByCat(catId, offset)
+      productModel.pageByCat(catId, offset),
     ]);
 
     let nPages = Math.floor(total / limit);
@@ -27,21 +26,22 @@ router.get('/:id/products', async (req, res) => {
     for (i = 1; i <= nPages; i++) {
       page_numbers.push({
         value: i,
-        isCurrentPage: i === +page
-      })
+        isCurrentPage: i === +page,
+      });
     }
 
     console.log(rows);
 
-    rows.forEach(async element => {
-      element.check = (await productModel.check({
-        UserID: res.locals.authUser.UserID,
-        ProductID: +element.ProductID
-      }) == false)
+    rows.forEach(async (element) => {
+      element.check =
+        (await productModel.check({
+          UserID: res.locals.authUser.UserID,
+          ProductID: +element.ProductID,
+        })) == false;
     });
 
     //  const rows = await productModel.allByCat(req.params.id);
-    res.render('vwManageProduct/allByCat', {
+    res.render("vwManageProduct/allByCat", {
       products: rows,
       product: rows[0],
       empty: rows.length === 0,
@@ -51,23 +51,22 @@ router.get('/:id/products', async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.end('View error log in console.');
+    res.end("View error log in console.");
   }
-})
+});
 
 // vw product detail
-router.get('/products/:id', async (req, res) => {
-
+router.get("/products/:id", async (req, res) => {
   const catId = req.params.id;
 
   const rows = await productModel.single(catId);
-  res.render('vwProducts/detail', {
+  res.render("vwProducts/detail", {
     products: rows[0],
     empty: rows.length === 0,
   });
-})
+});
 
-router.get('/products/:id/add', async (req, res) => {
+router.get("/products/:id/add", async (req, res) => {
   try {
     // const proId = req.params.id;
     // const user = req.session.authUser;
@@ -89,18 +88,21 @@ router.get('/products/:id/add', async (req, res) => {
     const user = req.session.authUser;
     const cart = req.session.cart;
 
-   console.log(user);
-   console.log( cart[0].cart_id);
-    const result = await cartModel.add(cart[0].cart_id, proId);
-    const rows = await cartModel.listProductByUser(user.user_id);
-    req.session.cart=rows;
-    res.redirect('/checkout/cart');
+    console.log(user);
+
+    if (!user) {
+      res.redirect("/account/login");
+    } else {
+      console.log(user);
+      console.log(cart[0].cart_id);
+      const result = await cartModel.add(cart[0].cart_id, proId);
+      const rows = await cartModel.listProductByUser(user.user_id);
+      req.session.cart = rows;
+      res.redirect("/checkout/cart");
+    }
   } catch (err) {
     console.log(err);
-    res.redirect('/account/login');
-
   }
-})
-
+});
 
 module.exports = router;
