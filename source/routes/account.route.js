@@ -65,6 +65,8 @@ if (rs === false )
         if (cart.length === 0)
         {
         const result2 = cartModel.create(user.user_id);
+        const r = await cartModel.listProductByUser(user.user_id);
+        req.session.cart=r[0];
         }
         //customer
         res.redirect('/');

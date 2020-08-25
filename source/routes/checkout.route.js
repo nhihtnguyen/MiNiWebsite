@@ -56,10 +56,12 @@ router.get('/confirm/:order', async (req, res) => {
 router.get('/order/:order', (req, res) => {
     const order = req.params.order;
     const user = req.session.authUser;
+ 
 
     res.render('vwCheckout/orderInformation', {
         user: user,
         order_id: order,
+       
     });
 
 })
@@ -159,9 +161,10 @@ router.get('/payment/confirm', async (req, res) => {
 router.get('/list', async (req, res) => {
     const user_id = req.session.authUser.user_id;
     const rows = await orderModel.orderByUser(user_id);
-    rows.forEach(e => {
-        moment(e.order_date).format("DD-MM-YYYY");
-    });
+    for(var i=0;i<rows.length;i++){
+        moment(rows[i].order_date).format("DD-MM-YYYY");
+    }
+    
     res.render('vwCheckout/listOrder',
         {
             orders: rows,

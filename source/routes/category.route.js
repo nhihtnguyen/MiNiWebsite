@@ -30,7 +30,7 @@ router.get("/:id/products", async (req, res) => {
       });
     }
 
-    console.log(rows);
+   /*  console.log(rows); */
 
     rows.forEach(async (element) => {
       element.check =
@@ -86,16 +86,21 @@ router.get("/products/:id/add", async (req, res) => {
     // }
     const proId = req.params.id;
     const user = req.session.authUser;
+    
+   
+/*     console.log(userId); */
     const cart = req.session.cart;
 
-    console.log(user);
 
-    if (!user) {
+
+    if (typeof(user)==='undefined') {
       res.redirect("/account/login");
     } else {
+      const userId = user.user_id;
+      const cartId = await userModel.cartByUser(userId);
       console.log(user);
-      console.log(cart[0].cart_id);
-      const result = await cartModel.add(cart[0].cart_id, proId);
+      console.log(cartId[0].cart_id);
+      const result = await cartModel.add(cartId[0].cart_id, proId);
       const rows = await cartModel.listProductByUser(user.user_id);
       req.session.cart = rows;
       res.redirect("/checkout/cart");
