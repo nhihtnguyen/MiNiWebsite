@@ -97,6 +97,7 @@ router.get('/products/:id/add', async (req, res) => {
     res.redirect('/checkout/cart');
   } catch (err) {
     console.log(err);
+    res.redirect('/account/login');
 
   }
 })

@@ -61,13 +61,13 @@
                             </div>
                         </td>
                         <td>
-                            <h5>{{price}}</h5>
+                            <h5>{{format price}}</h5>
                         </td>
                         <td>
                             <h5>{{amount}}</h5>
                         </td>
                         <td>
-                            <h5 id="subtotal">{{sub}}</h5>
+                            <h5 id="subtotal">{{format sub}}</h5>
 
                         </td>
                     </tr>
@@ -83,11 +83,11 @@
         <div class="float-right">
 
             <div class="card bg-light mb-3 " style="max-width: 20rem;">
-                <div class="card-header font-weight-bold"> Thành tiền: <a>{{this.total}}</a></div>
+                <div class="card-header font-weight-bold"> Thành tiền: <a>{{format this.total}}</a></div>
                 <div class="card-body">
-                    <h5 class="card-title">Tạm tính: <a>{{this.temptotal}}</a></h5>
+                    <h5 class="card-title">Tạm tính: <a>{{format this.temptotal}}</a></h5>
                  
-                    <p class="card-text">Phí vận chuyển: <a>{{this.fee}}</a></p>
+                    <p class="card-text">Phí vận chuyển: <a>{{format this.fee}}</a></p>
                   
 
 
