@@ -11,4 +11,5 @@ module.exports = {
   },
 
   add: entity => db.add('Category', entity),
+  
 };

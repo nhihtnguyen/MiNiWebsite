@@ -67,14 +67,37 @@
                             </div>
                             <div class="col-xl-6 col-lg-4 col-md-4 col-sm-4 fix-card">
                                 <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                    <li class="d-none d-xl-block">
+                                    {{!--  <li class="d-none d-xl-block">
                                         <div class="form-box f-right ">
                                             <input type="text" name="Search" placeholder="Search products">
                                             <div class="search-icon">
                                                 <i class="fa fa-search special-tag"></i>
                                             </div>
                                         </div>
+                                    </li> --}}
+
+                                    {{!--   <li class="d-none d-xl-block">
+                                        <form class="form-box f-right " action="/search" method="POST">
+                                            <input type="search" placeholder="Search" id="inputSearch"
+                                                name="inputSearch">
+                                            <button class="btn cus_btn rounded-0" type="submit">
+                                                <i class="fa fa-search special-tag"></i>
+                                            </button>
+                                        </form>
+                                    </li> --}}
+                                    <li class="d-none d-xl-block">
+                                        <form class="form-inline " action="/search" method="POST">
+                                            <input class="form-control rounded-0" type="search" placeholder="Search"
+                                                id="inputSearch" name="inputSearch">
+                                            <button class="btn cus_btn rounded-0" type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </form>
                                     </li>
+
+
+
+
 
                                     <li>
                                         <div class="shopping-card">

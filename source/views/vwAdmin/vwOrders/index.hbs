@@ -57,22 +57,26 @@
                 <td>{{total}}</td>
                 <td>{{status}}</td>
                 <td class="text-right">
-                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/processing" role="button">
-                        <i class="fa fa-spinner" aria-hidden="true"></i>
-                        Đang xử lý
-                    </a>
-                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/delivering" role="button">
-                        <i class="fa fa-truck" aria-hidden="true"></i>
-                        Đang giao
-                    </a>
-                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/success" role="button">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                        Thành công
-                    </a>
-                    <a class="btn btn-success mt-3" href="/admin/orders/{{order_id}}/cancel" role="button">
-                        <i class="fa fa-times-circle" aria-hidden="true"></i>
-                        Hủy đơn
-                    </a>
+                    <div style="width :120px">
+                        <a class="btn btn-success mt-3 btn-sm btn-block" href="/admin/orders/{{order_id}}/processing"
+                            role="button">
+                            <i class="fa fa-spinner" aria-hidden="true"></i>
+                            Đang xử lý
+                        </a>
+                        <a class="btn btn-success mt-3 btn-sm btn-block" href="/admin/orders/{{order_id}}/delivering"
+                            role="button">
+                            <i class="fa fa-truck" aria-hidden="true"></i>
+                            Đang giao
+                        </a>
+                        <a class="btn btn-success mt-3 btn-sm btn-block" href="/admin/orders/{{order_id}}/success" role="button">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            Thành công
+                        </a>
+                        <a class="btn btn-danger mt-3 btn-sm btn-block" href="/admin/orders/{{order_id}}/cancel" role="button">
+                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                            Hủy đơn
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
