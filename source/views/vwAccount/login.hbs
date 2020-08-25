@@ -26,7 +26,12 @@
                         <a href="/account/register " class="signup-image-link">Create an account</a>
                     </div>
                     <div class="signin-form">
+                        
                         <h2 class="form-title">Login</h2>
+                        {{#if err_message}}
+                        <a style="color:red">{{err_message}}</a>
+                        </br>
+                        {{/if}}
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>

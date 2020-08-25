@@ -11,7 +11,10 @@ app.engine('hbs', exphbs({
   layoutsDir: 'views/_layouts',
   helpers: {
       section: hbs_sections(),
+      format: val => val + '.000 VNĐ',
   }
+     
+   
 
 }));
 
@@ -42,6 +45,13 @@ require('./middlewares/route.mdw')(app);
 app.get('/', (req, res) => {
   res.render('home');
 })
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  console.log('error on csl');
+  res.render('error', { layout: false });
+})
+
 
 
 const PORT = 3000;

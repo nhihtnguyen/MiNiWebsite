@@ -41,14 +41,17 @@ router.post('/login', async(req, res) => {
 
     const user = await userModel.singleByUsername(req.body.username);
     if (user === null)
-        throw new Error('Invalid username or password,');
-    const rs = bcrypt.compareSync(req.body.password, user.password);
-    if (rs === false)
-        return res.render('vwAccount/login', {
-            layout: false,
-            err_message: 'Login failed'
-        });
-
+    //throw new Error('Invalid username or password,');
+    return res.render('vwAccount/login', {
+        layout: false,
+        err_message: 'Invalid username, Try again !'
+    });
+const rs = bcrypt.compareSync(req.body.password, user.password);
+if (rs === false )
+    return res.render('vwAccount/login', {
+        layout: false,
+        err_message: 'Invalid password, Try again !'
+    });
     delete user.password;
     req.session.isAuthenticated = true;
     req.session.authUser = user;
