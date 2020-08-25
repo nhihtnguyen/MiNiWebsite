@@ -49,7 +49,7 @@ INSERT INTO `cosmetic_website`.`user` (`full_name`,`email`, `username`, `passwor
 -- INSERT INTO `cosmetic_website`.`cart` (`cart_id`,`customer_id`, `total_price`) VALUES('1', '1', '0');
 
 -- cart detail
-INSERT INTO `cosmetic_website`.`cart_detail` (`cart_id`,`product_id`, `amount`) VALUES('1', '1', '1');
+-- INSERT INTO `cosmetic_website`.`cart_detail` (`cart_id`,`product_id`, `amount`) VALUES('1', '1', '1');
 
 
 
